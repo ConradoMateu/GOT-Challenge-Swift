@@ -7,15 +7,28 @@
 //
 
 import Foundation
+import ObjectMapper
 
 struct Character {
-    let id: String
-    let name: String
-    let description: String?
-    let image: URL?
+    var id: String = ""
+    var name: String = ""
+    var description: String?
+    var image: URL?
     var formalDescription: String {
         get {
             return "\(name) - \(description ?? "No description provided.")"
         }
+    }
+}
+
+extension Character: Mappable {
+    init?(map: Map) {
+    }
+
+    mutating func mapping(map: Map) {
+        id              <- map["title"]
+        name            <- map["name"]
+        description     <- map["description"]
+        image           <- (map["imageUrl"], URLTransform())
     }
 }

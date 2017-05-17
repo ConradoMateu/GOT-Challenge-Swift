@@ -24,8 +24,6 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         presenter.viewDidLoad()
         setUpView()
-
-
     }
 
     fileprivate func configureNavigationBarTitle() {

@@ -11,7 +11,7 @@ import Foundation
 
 class CharactersInteractor: CharactersUseCase {
     weak var output: CharactersInteractorOutput!
-    var apiclient: CharactersAPIClient = FakeCharactersAPIClient()
+    var apiclient: CharactersAPIClient = RealCharactersAPIClient()
     func fetchCharacters() {
         apiclient.getAllCharacters { result in
             switch result {

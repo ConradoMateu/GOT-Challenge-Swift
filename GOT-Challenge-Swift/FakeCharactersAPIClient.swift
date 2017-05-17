@@ -107,7 +107,7 @@ class FakeCharactersAPIClient: CharactersAPIClient {
         ]
 
     }
-    func getAllCharacters(_ completion: (Result<[Character], CharactersError>) -> Void) {
+    func getAllCharacters(_ completion: @escaping (Result<[Character], CharactersError>) -> Void) {
         completion(Result(characters))
     }
 }

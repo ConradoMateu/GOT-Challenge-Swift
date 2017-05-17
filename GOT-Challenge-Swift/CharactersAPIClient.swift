@@ -10,5 +10,5 @@ import Foundation
 import Result
 
 protocol CharactersAPIClient {
-    func getAllCharacters (_ completion: (Result<[Character], CharactersError>) -> Void)
+    func getAllCharacters (_  completion: @escaping (Result<[Character], CharactersError>) -> Void)
 }

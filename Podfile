@@ -8,6 +8,8 @@ target 'GOT-Challenge-Swift' do
     pod 'SDWebImage'
     pod 'R.swift'
     pod 'PKHUD'
+    pod 'AlamofireObjectMapper'
+    pod 'Alamofire'
   # Pods for GOT-Challenge-Swift
 
   target 'GOT-Challenge-SwiftTests' do
