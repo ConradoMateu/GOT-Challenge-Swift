@@ -16,7 +16,7 @@ class RealCharactersAPIClient: CharactersAPIClient {
 
     fileprivate let characters: [Character] = []
 
-    let endPoint: String = ""
+    let endPoint: String = "https://raw.githubusercontent.com/ConradoMateu/GOT-Challenge-Swift/master/GOT-Challenge-Swift/data.json"
 
     func getAllCharacters(_ completion: @escaping (Result<[Character], CharactersError>) -> Void) {
 
