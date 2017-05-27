@@ -19,7 +19,9 @@ class CharacterDetailViewController: UIViewController, DetailsView {
         nameLabel.text = character.name
         descriptionLabel.text = "Description: " + character.description!
         characterImage
-            .sd_setImage(with: character.image as URL!)
+            .sd_setImage(with: character.image as URL!,placeholderImage: #imageLiteral(resourceName: "placeholder-image10"))
+
+
     }
 
     override func viewDidLoad() {
