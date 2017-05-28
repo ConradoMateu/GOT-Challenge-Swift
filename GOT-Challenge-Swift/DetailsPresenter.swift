@@ -9,8 +9,7 @@
 import Foundation
 
 class DetailsPresenter: DetailsPresentation {
-    var view: DetailsView?
-    var wireframe: DetailsWireframe!
+    open var view: DetailsView?
     var character: Character!
 
     func viewDidLoad() {

@@ -10,8 +10,8 @@ import Foundation
 
 class CharactersPresenter: CharactersPresentation{
     weak var view: CharactersView?
-    var interactor: CharactersUseCase!
-    var router: CharactersWireframe!
+    weak var interactor: CharactersUseCase?
+    weak var router: CharactersWireframe?
     var characters = [Character](){
         didSet {
             if characters.count > 0 {
@@ -21,12 +21,14 @@ class CharactersPresenter: CharactersPresentation{
             }
         }
     }
+
+    
     func didSelectCharacter(_ character: Character){
-        router.presentDetails(forCharacter: character)
+        router?.presentDetails(forCharacter: character)
     }
     func viewDidLoad() {
         view?.showActivityIndicator()
-        interactor.fetchCharacters()
+        interactor?.fetchCharacters()
     }
 }
 

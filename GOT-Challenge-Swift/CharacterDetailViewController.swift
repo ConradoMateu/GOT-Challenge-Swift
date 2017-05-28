@@ -13,15 +13,14 @@ class CharacterDetailViewController: UIViewController, DetailsView {
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    var presenter: DetailsPresentation!
+    open var presenter: DetailsPresentation! =  nil
+
     func showDetails(forCharacter character: Character) {
         self.title = character.name
         nameLabel.text = character.name
         descriptionLabel.text = "Description: " + character.description!
         characterImage
             .sd_setImage(with: character.image as URL!,placeholderImage: #imageLiteral(resourceName: "placeholder-image10"))
-
-
     }
 
     override func viewDidLoad() {

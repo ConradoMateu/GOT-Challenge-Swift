@@ -11,7 +11,7 @@ import UIKit
 class CharactersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    var presenter: CharactersPresentation!
+    open var presenter: CharactersPresentation! = nil
     var characters = [Character]() {
         didSet {
             tableView.reloadData()

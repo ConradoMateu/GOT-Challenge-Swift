@@ -16,14 +16,14 @@ protocol CharactersView: IndicatableView {
 
 protocol CharactersPresentation: class {
     weak var view: CharactersView? { get set }
-    var interactor: CharactersUseCase! { get set }
-    var router: CharactersWireframe! { get set }
+    weak var interactor: CharactersUseCase? { get set }
+    weak var router: CharactersWireframe? { get set }
     func viewDidLoad()
     func didSelectCharacter(_ character: Character)
 }
 
 protocol CharactersUseCase: class {
-    weak var output: CharactersInteractorOutput! { get set }
+    weak var output: CharactersInteractorOutput? { get set }
     func fetchCharacters()
 }
 
@@ -35,5 +35,4 @@ protocol CharactersInteractorOutput: class {
 protocol CharactersWireframe: class {
     weak var viewController: UIViewController? { get set }
     func presentDetails(forCharacter character: Character)
-    static func assembleModule() -> UIViewController
 }
