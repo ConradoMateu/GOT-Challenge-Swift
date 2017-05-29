@@ -11,7 +11,11 @@ import UIKit
 
 
 class CharactersRouter: CharactersWireframe{
-    weak var viewController: UIViewController?
+    var viewController: UIViewController!
+
+    init(viewController: CharactersViewController) {
+        self.viewController = viewController
+    }
 
     func presentDetails(forCharacter character: Character) {
         let detailsModuleViewController = ServiceLocator().provideCharacterDetailViewController()

@@ -10,8 +10,13 @@ import Foundation
 
 
 class CharactersInteractor: CharactersUseCase {
-    weak var output: CharactersInteractorOutput?
-    var apiclient: CharactersAPIClient = ServiceLocator().provideApiClient()
+    var output: CharactersInteractorOutput!
+    var apiclient: CharactersAPIClient!
+
+    init(output: CharactersInteractorOutput, apiclient: CharactersAPIClient) {
+        self.output = output
+        self.apiclient = apiclient
+    }
 
     func fetchCharacters() {
         apiclient.getAllCharacters { result in

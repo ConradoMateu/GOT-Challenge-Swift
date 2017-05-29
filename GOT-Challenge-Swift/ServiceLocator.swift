@@ -20,7 +20,6 @@ class ServiceLocator {
         let charactersViewController = R.storyboard.gOT.charactersViewController()
         let presenter = provideCharactersPresenter(view:
             charactersViewController!)
-        presenter.view = charactersViewController
         charactersViewController?.presenter = presenter
         return charactersViewController!
     }
@@ -44,30 +43,15 @@ class ServiceLocator {
     }
 
     fileprivate func provideCharactersPresenter(view: CharactersViewController) -> CharactersPresenter{
-
-        let router = self.provideCharacterRouter(view: view)
-        let presenter = CharactersPresenter()
-        let interactor = self.provideCharactersInteractor(presenter: presenter)
-
-        presenter.interactor = interactor
-        presenter.view = view
-        presenter.router = router
-
-
-        view.presenter = presenter
-
-        return presenter
+        return CharactersPresenter(view: view)
     }
 
-    fileprivate func provideCharacterRouter(view: CharactersViewController) -> CharactersRouter {
-        let router = CharactersRouter()
-        router.viewController = view
-        return router
+    func provideCharacterRouter(viewController: CharactersViewController) -> CharactersRouter {
+        return CharactersRouter(viewController: viewController)
     }
 
-    fileprivate func provideCharactersInteractor(presenter: CharactersPresenter) -> CharactersInteractor {
-        let interactor = CharactersInteractor()
-        interactor.output = presenter
-        return interactor
+    func provideCharactersInteractor(output: CharactersInteractorOutput) -> CharactersInteractor {
+        let apiclient = RealCharactersAPIClient()
+        return CharactersInteractor(output: output, apiclient: apiclient)
     }
 }
