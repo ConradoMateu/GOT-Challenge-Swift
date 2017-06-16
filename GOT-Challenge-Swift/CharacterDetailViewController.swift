@@ -13,7 +13,7 @@ class CharacterDetailViewController: UIViewController, DetailsView {
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    open var presenter: DetailsPresentation! =  nil
+    open var presenter: DetailsPresentation!
 
     func showDetails(forCharacter character: Character) {
         self.title = character.name

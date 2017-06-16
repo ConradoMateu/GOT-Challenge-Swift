@@ -18,7 +18,7 @@ class CharactersRouter: CharactersWireframe{
     }
 
     func presentDetails(forCharacter character: Character) {
-        let detailsModuleViewController = ServiceLocator().provideCharacterDetailViewController()
+        let detailsModuleViewController = ServiceLocator().provideCharacterDetailViewController(forCharacter: character)
         viewController?.navigationController?.pushViewController(detailsModuleViewController, animated: true)
     }
 }

@@ -16,8 +16,8 @@ protocol CharactersView: IndicatableView {
 
 protocol CharactersPresentation: class {
     var view: CharactersView! { get set }
-    weak var interactor: CharactersUseCase? { get set }
-    weak var router: CharactersWireframe? { get set }
+    var interactor: CharactersUseCase? { get set }
+    var router: CharactersWireframe? { get set }
     func viewDidLoad()
     func didSelectCharacter(_ character: Character)
 }
