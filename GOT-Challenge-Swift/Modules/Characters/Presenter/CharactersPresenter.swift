@@ -24,18 +24,15 @@ class CharactersPresenter: CharactersPresentation{
     }
     
     func didSelectCharacter(_ character: Character){
-        print(router.debugDescription)
         router!.presentDetails(forCharacter: character)
     }
 
     func viewDidLoad() {
         initialize()
-        print(router.debugDescription)
         view?.showActivityIndicator()
     }
 
     func initialize(){
-//        self.router = ServiceLocator().provideCharacterRouter(viewController: view as! CharactersViewController)
         self.interactor = ServiceLocator().provideCharactersInteractor(output: self)
         interactor?.fetchCharacters()
     }

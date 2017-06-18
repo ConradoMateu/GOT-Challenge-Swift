@@ -11,6 +11,15 @@ import Foundation
 
 class ServiceLocator {
 
+    fileprivate func provideCharacterDetailPresenter(forCharacter character: Character, view: DetailsView) -> DetailsPresenter{
+        return DetailsPresenter(view: view, character: character)
+    }
+
+    fileprivate func provideCharactersPresenter(view: CharactersViewController) -> CharactersPresenter{
+        let router = provideCharacterRouter(viewController: view)
+        return CharactersPresenter(view: view, router: router)
+    }
+
     func provideRootViewController() -> UIViewController {
         let view = ServiceLocator().provideCharactersViewController()
         return  UINavigationController(rootViewController: view)
@@ -34,15 +43,6 @@ class ServiceLocator {
 
     func provideApiClient() -> CharactersAPIClient {
         return RealCharactersAPIClient()
-    }
-
-    fileprivate func provideCharacterDetailPresenter(forCharacter character: Character, view: DetailsView) -> DetailsPresenter{
-        return DetailsPresenter(view: view, character: character)
-    }
-
-    fileprivate func provideCharactersPresenter(view: CharactersViewController) -> CharactersPresenter{
-        let router = provideCharacterRouter(viewController: view)
-        return CharactersPresenter(view: view, router: router)
     }
 
     func provideCharacterRouter(viewController: CharactersViewController) -> CharactersRouter {
