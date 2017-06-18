@@ -9,10 +9,13 @@
 import Foundation
 
 class DetailsPresenter: DetailsPresentation {
-    var view: DetailsView?
-    var wireframe: DetailsWireframe!
+    open var view: DetailsView?
     var character: Character!
 
+    init(view: DetailsView, character: Character){
+        self.view = view
+        self.character = character
+    }
     func viewDidLoad() {
         view?.showDetails(forCharacter: character)
     }

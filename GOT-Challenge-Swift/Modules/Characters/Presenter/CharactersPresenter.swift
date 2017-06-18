@@ -9,24 +9,32 @@
 import Foundation
 
 class CharactersPresenter: CharactersPresentation{
-    weak var view: CharactersView?
-    var interactor: CharactersUseCase!
-    var router: CharactersWireframe!
+    var view: CharactersView!
+    var interactor: CharactersUseCase?
+    var router: CharactersWireframe?
     var characters = [Character](){
         didSet {
-            if characters.count > 0 {
-                view?.showCharactersData(characters)
-            } else {
-                view?.showNoContentScreen()
-            }
+            characters.count > 0 ? view?.showCharactersData(characters) : view?.showNoContentScreen()
         }
     }
-    func didSelectCharacter(_ character: Character){
-        router.presentDetails(forCharacter: character)
+
+    init(view: CharactersViewController, router: CharactersRouter) {
+        self.view = view
+        self.router = router
     }
+    
+    func didSelectCharacter(_ character: Character){
+        router!.presentDetails(forCharacter: character)
+    }
+
     func viewDidLoad() {
+        initialize()
         view?.showActivityIndicator()
-        interactor.fetchCharacters()
+    }
+
+    func initialize(){
+        self.interactor = ServiceLocator().provideCharactersInteractor(output: self)
+        interactor?.fetchCharacters()
     }
 }
 

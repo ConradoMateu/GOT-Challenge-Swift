@@ -10,16 +10,22 @@ import Foundation
 
 
 class CharactersInteractor: CharactersUseCase {
-    weak var output: CharactersInteractorOutput!
-    var apiclient: CharactersAPIClient = RealCharactersAPIClient()
+    var output: CharactersInteractorOutput!
+    var apiclient: CharactersAPIClient!
+
+    init(output: CharactersInteractorOutput, apiclient: CharactersAPIClient) {
+        self.output = output
+        self.apiclient = apiclient
+    }
+
     func fetchCharacters() {
         apiclient.getAllCharacters { result in
             switch result {
             case .success(let characters):
-                self.output.charactersFetched(characters)
+                self.output?.charactersFetched(characters)
                 break
             case .failure( _):
-                self.output.charactersFetchFailed()
+                self.output?.charactersFetchFailed()
                 break
 
             }

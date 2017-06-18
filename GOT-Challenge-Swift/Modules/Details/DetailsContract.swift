@@ -19,7 +19,3 @@ protocol DetailsPresentation: class {
 
     func viewDidLoad()
 }
-
-protocol DetailsWireframe: class {
-    static func assembleModule(_ character: Character) -> UIViewController
-}

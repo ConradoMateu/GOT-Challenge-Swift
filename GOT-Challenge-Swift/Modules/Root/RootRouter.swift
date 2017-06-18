@@ -11,6 +11,6 @@ import UIKit
 class RootRouter: RootWireframe{
     func presentCharactersScreen(in window: UIWindow) {
         window.makeKeyAndVisible()
-        window.rootViewController =  CharactersRouter.assembleModule()
+        window.rootViewController =  ServiceLocator().provideRootViewController()
     }
 }
