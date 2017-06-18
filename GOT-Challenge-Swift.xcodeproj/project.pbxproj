@@ -137,6 +137,7 @@
 				E20AB6481ECC397D000CCCA0 /* data.json */,
 			);
 			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		E212E9CC1E7950AF006C6DD4 /* Model */ = {
@@ -145,15 +146,17 @@
 				E2A1524B1E6C3E88003B7415 /* Character.swift */,
 			);
 			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E212E9CE1E795105006C6DD4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				E2C286D91EC5DE2600F5F465 /* CharactersError.swift */,
 				E2A1524F1E6C8ACE003B7415 /* API Client */,
+				E2C286D91EC5DE2600F5F465 /* CharactersError.swift */,
 			);
 			name = Network;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		E212E9CF1E795124006C6DD4 /* Storyboards */ = {
@@ -163,37 +166,41 @@
 				E2A152341E6C3E79003B7415 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		E2748DB71EA7BB1100444532 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				E2748DBA1EA7BB5600444532 /* Details */,
 				E2748DB91EA7BB3100444532 /* Characters */,
+				E2748DBA1EA7BB5600444532 /* Details */,
 				E2748DB81EA7BB2B00444532 /* Root */,
 			);
 			name = Modules;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		E2748DB81EA7BB2B00444532 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				E2748DBB1EA7BB6D00444532 /* RouterContract.swift */,
 				E2748DBD1EA7BBBE00444532 /* RootRouter.swift */,
+				E2748DBB1EA7BB6D00444532 /* RouterContract.swift */,
 			);
 			name = Root;
+			path = Root;
 			sourceTree = "<group>";
 		};
 		E2748DB91EA7BB3100444532 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
-				E2B8B63C1EAA93DA00ACFD80 /* View */,
-				E2B8B63B1EAA93CF00ACFD80 /* Presenter */,
 				E2B8B63A1EAA93C300ACFD80 /* Interactor */,
+				E2B8B63B1EAA93CF00ACFD80 /* Presenter */,
 				E2B8B6381EAA93BA00ACFD80 /* Router */,
+				E2B8B63C1EAA93DA00ACFD80 /* View */,
 				E2748DC11EA7BC9900444532 /* CharactersContract.swift */,
 			);
 			name = Characters;
+			path = Characters;
 			sourceTree = "<group>";
 		};
 		E2748DBA1EA7BB5600444532 /* Details */ = {
@@ -204,6 +211,7 @@
 				E2E246F61EA7F23500622D68 /* DetailsContract.swift */,
 			);
 			name = Details;
+			path = Details;
 			sourceTree = "<group>";
 		};
 		E2748DC31EA7BD3300444532 /* Protocols */ = {
@@ -212,16 +220,17 @@
 				E2748DC41EA7BD4B00444532 /* View.swift */,
 			);
 			name = Protocols;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		E2A1521F1E6C3E79003B7415 = {
 			isa = PBXGroup;
 			children = (
+				9D685935237CED8C4B1CB524 /* Frameworks */,
 				E2A1522A1E6C3E79003B7415 /* GOT-Challenge-Swift */,
 				E2A1523F1E6C3E79003B7415 /* GOT-Challenge-SwiftTests */,
-				E2A152291E6C3E79003B7415 /* Products */,
 				EEFCC71F5AA5E1B3E9C04C6C /* Pods */,
-				9D685935237CED8C4B1CB524 /* Frameworks */,
+				E2A152291E6C3E79003B7415 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -237,17 +246,17 @@
 		E2A1522A1E6C3E79003B7415 /* GOT-Challenge-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				E20AB6471ECC396A000CCCA0 /* Resources */,
-				E2748DC31EA7BD3300444532 /* Protocols */,
-				E2748DB71EA7BB1100444532 /* Modules */,
 				E2D384781E75F81A00010CA5 /* Extensions */,
-				E212E9CF1E795124006C6DD4 /* Storyboards */,
-				E212E9CE1E795105006C6DD4 /* Network */,
 				E212E9CC1E7950AF006C6DD4 /* Model */,
+				E2748DB71EA7BB1100444532 /* Modules */,
+				E212E9CE1E795105006C6DD4 /* Network */,
+				E2748DC31EA7BD3300444532 /* Protocols */,
+				E20AB6471ECC396A000CCCA0 /* Resources */,
+				E212E9CF1E795124006C6DD4 /* Storyboards */,
 				E2A1522B1E6C3E79003B7415 /* AppDelegate.swift */,
-				E2748DB51EA7879700444532 /* R.generated.swift */,
 				E233789F1E6DF6FA00F3E36C /* Assets.xcassets */,
 				E2A152371E6C3E79003B7415 /* Info.plist */,
+				E2748DB51EA7879700444532 /* R.generated.swift */,
 				E21132F81ED9DF6900C786E8 /* ServiceLocator.swift */,
 			);
 			path = "GOT-Challenge-Swift";
@@ -256,14 +265,14 @@
 		E2A1523F1E6C3E79003B7415 /* GOT-Challenge-SwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				E2A152401E6C3E79003B7415 /* GOT_Challenge_SwiftTests.swift */,
-				E2F4B1E11E71F284009DC829 /* MockCharactersAPIClient.swift */,
-				E2A152421E6C3E79003B7415 /* Info.plist */,
-				E263F9191E740AF300BDE31C /* CharactersGenerator.swift */,
 				E28B659E1E7020EA000C0401 /* Character.swift */,
-				E21D98EA1E7ABE0B00693250 /* XCTestCase.swift */,
+				E263F9191E740AF300BDE31C /* CharactersGenerator.swift */,
+				E2A152401E6C3E79003B7415 /* GOT_Challenge_SwiftTests.swift */,
+				E2A152421E6C3E79003B7415 /* Info.plist */,
 				E21D98EC1E7ABE2800693250 /* KIFTestActor.swift */,
+				E2F4B1E11E71F284009DC829 /* MockCharactersAPIClient.swift */,
 				E21D98EE1E7ABFD400693250 /* UITesting.swift */,
+				E21D98EA1E7ABE0B00693250 /* XCTestCase.swift */,
 			);
 			path = "GOT-Challenge-SwiftTests";
 			sourceTree = "<group>";
@@ -271,11 +280,12 @@
 		E2A1524F1E6C8ACE003B7415 /* API Client */ = {
 			isa = PBXGroup;
 			children = (
-				E2A152501E6C8B1B003B7415 /* FakeCharactersAPIClient.swift */,
 				E2A152521E6C8B46003B7415 /* CharactersAPIClient.swift */,
+				E2A152501E6C8B1B003B7415 /* FakeCharactersAPIClient.swift */,
 				E2B89E2B1EC8EC3100064674 /* RealCharactersAPIClient.swift */,
 			);
 			name = "API Client";
+			path = "API Client";
 			sourceTree = "<group>";
 		};
 		E2B8B6381EAA93BA00ACFD80 /* Router */ = {
@@ -284,6 +294,7 @@
 				E2748DBF1EA7BC7100444532 /* CharactersRouter.swift */,
 			);
 			name = Router;
+			path = Router;
 			sourceTree = "<group>";
 		};
 		E2B8B63A1EAA93C300ACFD80 /* Interactor */ = {
@@ -292,6 +303,7 @@
 				E2E246F21EA7EFA000622D68 /* CharactersInteractor.swift */,
 			);
 			name = Interactor;
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		E2B8B63B1EAA93CF00ACFD80 /* Presenter */ = {
@@ -300,15 +312,17 @@
 				E2E246F01EA7EE6800622D68 /* CharactersPresenter.swift */,
 			);
 			name = Presenter;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		E2B8B63C1EAA93DA00ACFD80 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E2A1524D1E6C4506003B7415 /* CharactersViewController.swift */,
 				E263F91B1E74211700BDE31C /* CharacterTableViewCell.swift */,
+				E2A1524D1E6C4506003B7415 /* CharactersViewController.swift */,
 			);
 			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		E2B8B63E1EAA940600ACFD80 /* View */ = {
@@ -317,6 +331,7 @@
 				E212E9C81E793C5D006C6DD4 /* CharacterDetailViewController.swift */,
 			);
 			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		E2B8B63F1EAA941100ACFD80 /* Presenter */ = {
@@ -325,6 +340,7 @@
 				E2E246F81EA7F57D00622D68 /* DetailsPresenter.swift */,
 			);
 			name = Presenter;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		E2D384781E75F81A00010CA5 /* Extensions */ = {
@@ -335,6 +351,7 @@
 				E2D384761E75F81200010CA5 /* UIColor.swift */,
 			);
 			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		EEFCC71F5AA5E1B3E9C04C6C /* Pods */ = {
@@ -640,6 +657,7 @@
 				E2A152301E6C3E79003B7415 /* Base */,
 			);
 			name = GOT.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		E2A152341E6C3E79003B7415 /* LaunchScreen.storyboard */ = {
@@ -648,6 +666,7 @@
 				E2A152351E6C3E79003B7415 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
