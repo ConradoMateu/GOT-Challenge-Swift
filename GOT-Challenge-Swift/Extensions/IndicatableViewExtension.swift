@@ -13,10 +13,12 @@ extension IndicatableView where Self: UIViewController {
 
     func showActivityIndicator() {
         HUD.show(.progress)
+        accessibilityLabel = "LoadingView"
     }
 
     func hideActivityIndicator() {
         HUD.hide()
+        accessibilityLabel = "HideView"
     }
     
 }

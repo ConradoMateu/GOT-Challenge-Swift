@@ -26,7 +26,7 @@ class UITesting: KIFTestCase {
 
     func testExample() {
 
-        tester().tapView(withAccessibilityLabel: "Tyrion Lannister")
+        tester().tapView(withAccessibilityLabel: "Sansa Stark")
 
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

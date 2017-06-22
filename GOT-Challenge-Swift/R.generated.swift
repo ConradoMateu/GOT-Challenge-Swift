@@ -21,8 +21,17 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 0 files.
+  /// This `R.file` struct is generated, and contains static references to 1 files.
   struct file {
+    /// Resource file `data.json`.
+    static let dataJson = Rswift.FileResource(bundle: R.hostingBundle, name: "data", pathExtension: "json")
+    
+    /// `bundle.url(forResource: "data", withExtension: "json")`
+    static func dataJson(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.dataJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
     fileprivate init() {}
   }
   
@@ -31,14 +40,21 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 2 images.
   struct image {
     /// Image `launchscreen`.
     static let launchscreen = Rswift.ImageResource(bundle: R.hostingBundle, name: "launchscreen")
+    /// Image `placeholder-image10`.
+    static let placeholderImage10 = Rswift.ImageResource(bundle: R.hostingBundle, name: "placeholder-image10")
     
     /// `UIImage(named: "launchscreen", bundle: ..., traitCollection: ...)`
     static func launchscreen(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.launchscreen, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "placeholder-image10", bundle: ..., traitCollection: ...)`
+    static func placeholderImage10(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.placeholderImage10, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -51,8 +67,8 @@ struct R: Rswift.Validatable {
   
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
-    /// Reuse identifier `CharacterTableViewCell`.
-    static let characterTableViewCell: Rswift.ReuseIdentifier<CharacterTableViewCell> = Rswift.ReuseIdentifier(identifier: "CharacterTableViewCell")
+    /// Reuse identifier `CharacterCell`.
+    static let characterCell: Rswift.ReuseIdentifier<CharacterTableViewCell> = Rswift.ReuseIdentifier(identifier: "CharacterCell")
     
     fileprivate init() {}
   }

@@ -46,6 +46,9 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
         tableView.tableFooterView = UIView()
         tableView.separatorInset = .zero
         tableView.sectionHeaderHeight = 0
+        tableView.accessibilityIdentifier = "CharactersTableView"
+        tableView.accessibilityLabel = "CharactersTableView"
+
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,7 +56,7 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.characterTableViewCell, for: indexPath) 
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.characterCell, for: indexPath)
         let character = characters[(indexPath as NSIndexPath).row]
         cell?.configureForCharacter(character)
         return cell!

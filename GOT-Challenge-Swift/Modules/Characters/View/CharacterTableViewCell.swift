@@ -19,6 +19,8 @@ extension CharacterTableViewCell {
     func configureForCharacter(_ character: Character) {
         nameLabel.text = character.name
         characterImageView.sd_setImage(with: character.image,placeholderImage: #imageLiteral(resourceName: "placeholder-image10"))
+        accessibilityLabel = character.name
         self.layoutSubviews()
     }
 }
+

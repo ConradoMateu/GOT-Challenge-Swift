@@ -11,6 +11,9 @@ import Foundation
 
 class ServiceLocator {
 
+    static var apiClient: CharactersAPIClient = FakeCharactersAPIClient()
+
+
     fileprivate func provideCharacterDetailPresenter(forCharacter character: Character, view: DetailsView) -> DetailsPresenter{
         return DetailsPresenter(view: view, character: character)
     }
@@ -50,7 +53,10 @@ class ServiceLocator {
     }
 
     func provideCharactersInteractor(output: CharactersInteractorOutput) -> CharactersInteractor {
-        let apiclient = RealCharactersAPIClient()
-        return CharactersInteractor(output: output, apiclient: apiclient)
+        return CharactersInteractor(output: output, apiclient: ServiceLocator.apiClient)
+    }
+
+    static func config(apiClient: CharactersAPIClient){
+        self.apiClient = apiClient
     }
 }
