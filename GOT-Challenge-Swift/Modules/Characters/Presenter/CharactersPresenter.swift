@@ -28,8 +28,8 @@ class CharactersPresenter: CharactersPresentation{
     }
 
     func viewDidLoad() {
-        initialize()
         view?.showActivityIndicator()
+        initialize()
     }
 
     func initialize(){
