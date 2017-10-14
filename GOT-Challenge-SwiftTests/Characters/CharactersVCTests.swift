@@ -28,63 +28,76 @@ class CharactersVCTests: AcceptanceTestCase {
     func testShowsTheExactNumberOfCharacters() {
         let characters = givenThereAreCharacters()
         openCharactersVC()
-        let tableview = tester().waitForView(withAccessibilityLabel: "CharactersTableView") as! UITableView
-        expect(tableview.numberOfRows(inSection: 0)).to(equal(characters.count))
+        let tableview = tester().waitForView(withAccessibilityLabel: "CharactersTableView")
+        expect(self.numberOfElementesInCharactersTableView()).to(equal(characters.count))
     }
 
-    func testDetailVCOnCharactersTapped(){
-        let characterIndex = 4
+    func testDetailVCOnCharacterTapped(){
         let characters = givenThereAreCharacters()
-        let currentCharacters = characters[characterIndex]
         openCharactersVC()
-        tester().waitForView(withAccessibilityLabel: currentCharacters.name)
+        tester().waitForView(withAccessibilityLabel: "CharactersTableView")
+        let characterIndex = getRandomCellNumberInTableViewBounds()
+        let currentCharacter = characters[characterIndex]
+        tester().waitForView(withAccessibilityLabel: currentCharacter.name)
         tester().tapRow(at: IndexPath(row: characterIndex, section: 0), inTableViewWithAccessibilityIdentifier: "CharactersTableView")
-        tester().waitForView(withAccessibilityLabel: currentCharacters.name)
+        tester().waitForView(withAccessibilityLabel: currentCharacter.name)
     }
 
-    func testDetailVCOnCharactersTappeddd
+
+    func testDetailVCOnCharactersTapped
         (){
-
         let characters = givenThereAreCharacters()
-
         openCharactersVC()
-        for i in 0..<characters.count{
-            let currentCharacter = characters[i]
-            tester().waitForView(withAccessibilityLabel: currentCharacter.name)
-            tester().tapRow(at: IndexPath(row: i, section: 0), inTableViewWithAccessibilityIdentifier: "CharactersTableView")
-            tester().waitForView(withAccessibilityLabel: currentCharacter.name)
+        for (index, element) in characters.enumerated() {
+            tester().waitForView(withAccessibilityLabel: element.name)
+            tester().tapRow(at: IndexPath(row: index, section: 0), inTableViewWithAccessibilityIdentifier: "CharactersTableView")
+            tester().waitForView(withAccessibilityLabel: element.name)
             UIApplication.shared.keyWindow?.rootViewController = ServiceLocator().provideRootViewController()
         }
 
     }
+
 
     func testShowsCharactersNames() {
         let characters = givenThereAreCharacters()
 
         openCharactersVC()
 
-        for i in 0..<characters.count {
-            let characterCell = tester().waitForView(withAccessibilityLabel: characters[i].name) as! CharacterTableViewCell
-            expect(characterCell.nameLabel.text).to(equal(characters[i].name))
+        characters.forEach{
+            let characterCell = tester().waitForView(withAccessibilityLabel: $0.name) as! CharacterTableViewCell
+            expect(characterCell.nameLabel.text).to(equal($0.name))
         }
+
     }
 
     fileprivate func givenThereAreCharacters(numberOfCharacters: Int =  10) -> [GOT_Challenge_Swift.Character]{
         var characters: [GOT_Challenge_Swift.Character] = []
         for i in 0..<numberOfCharacters{
-            let character = GOT_Challenge_Swift.Character(id: "\(i)", name: "Character \(i)", description: "Description \(i)", image: URL(string: "https://geekandsundry.com/wp-content/uploads/2016/04/thronesposter.jpg")!)
+            let description = "Description \(i)"
+            let character = GOT_Challenge_Swift.Character(id: "\(i)", name: "Character \(i)", description: description, image: URL(string: "https://geekandsundry.com/wp-content/uploads/2016/04/thronesposter.jpg")!)
             characters.append(character)
         }
         apiClient.characters = characters
         return characters
     }
+
     fileprivate func openCharactersVC() {
-        _ = ServiceLocator.config(apiClient: apiClient)
+        _ = ServiceLocator.config(apiClient)
         let charactersVC = ServiceLocator().provideCharactersViewController()
         let rootViewController = UINavigationController()
         rootViewController.viewControllers = [charactersVC]
         present(viewController: rootViewController)
         tester().waitForAnimationsToFinish()
+    }
+
+    func numberOfElementesInCharactersTableView() -> Int {
+        let tableView = tester().waitForView(withAccessibilityLabel: "CharactersTableView") as! UITableView
+        return tableView.numberOfRows(inSection: 0)
+    }
+
+    //Generates a random number between 0 and N-1
+    func getRandomCellNumberInTableViewBounds() -> Int {
+        return Int(arc4random_uniform(UInt32(numberOfElementesInCharactersTableView())))
     }
 
 

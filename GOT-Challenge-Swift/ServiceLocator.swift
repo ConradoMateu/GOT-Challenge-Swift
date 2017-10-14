@@ -56,7 +56,7 @@ class ServiceLocator {
         return CharactersInteractor(output: output, apiclient: ServiceLocator.apiClient)
     }
 
-    static func config(apiClient: CharactersAPIClient){
+    static func config(_ apiClient: CharactersAPIClient){
         self.apiClient = apiClient
     }
 }

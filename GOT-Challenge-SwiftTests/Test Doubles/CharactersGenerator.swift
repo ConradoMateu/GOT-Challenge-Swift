@@ -12,7 +12,7 @@ import Foundation
 class CharactersGenerator {
     static func with(id: String = "0123",
                      name: String = "Jonh Snow",
-                     description: String? = nil,
+                     description: String? = "The king in the north",
                      image: URL? = nil) -> GOT_Challenge_Swift.Character {
                 return GOT_Challenge_Swift.Character(id: id, name: name, description: description, image: image)
     }

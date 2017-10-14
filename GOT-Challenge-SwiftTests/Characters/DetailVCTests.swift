@@ -28,19 +28,19 @@ class DetailVCTests: AcceptanceTestCase {
     }
 
     func testShowsNoDescriptionIfCharacterDoNotHave(){
-        let character = GOT_Challenge_Swift.Character(id: "1234", name: "ConradoMateuGisbert", description: nil, image: nil)
+        let character = CharactersGenerator.with(description: nil)
         openDetailVC(character)
         tester().waitForAbsenceOfView(withAccessibilityLabel:  "Description: \(String(describing: character.description))")
     }
 
     fileprivate func givenACharacter() -> GOT_Challenge_Swift.Character{
-        let character = GOT_Challenge_Swift.Character(id: "1234", name: "Conrado Mateu Gisbert", description: "Lorem Ipsum", image: nil)
+        let character = CharactersGenerator.with()
         apiClient.characters = [character]
         return character
     }
     
     fileprivate func openDetailVC(_ character: GOT_Challenge_Swift.Character) {
-        _ = ServiceLocator.config(apiClient: apiClient)
+        _ = ServiceLocator.config(apiClient)
         let detailVC = ServiceLocator().provideCharacterDetailViewController(forCharacter: character)
         let rootViewController = UINavigationController()
         rootViewController.viewControllers = [detailVC]
