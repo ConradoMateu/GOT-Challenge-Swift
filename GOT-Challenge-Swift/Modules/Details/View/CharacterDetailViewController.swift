@@ -21,7 +21,7 @@ class CharacterDetailViewController: UIViewController, DetailsView {
         let characterDescription = character.description != nil ? "Description: \(character.description!)" : ""
         descriptionLabel.text = characterDescription
         characterImage
-            .sd_setImage(with: character.image as URL!,placeholderImage: #imageLiteral(resourceName: "placeholder-image10"))
+            .sd_setImage(with: character.image as URL!, placeholderImage: #imageLiteral(resourceName: "placeholder-image10"))
     }
 
     override func viewDidLoad() {

@@ -11,6 +11,6 @@ import Foundation
 enum CharactersError: Error {
 
     case connectionError
-    case CharacterNotFound
+    case characterNotFound
 
 }

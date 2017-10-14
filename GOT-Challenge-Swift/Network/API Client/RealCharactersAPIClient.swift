@@ -20,7 +20,7 @@ class RealCharactersAPIClient: CharactersAPIClient {
 
     func getAllCharacters(_ completion: @escaping (Result<[Character], CharactersError>) -> Void) {
 
-        Alamofire.request(endPoint).responseArray{ (response: DataResponse<[Character]>) in
+        Alamofire.request(endPoint).responseArray { (response: DataResponse<[Character]>) in
 
             switch response.result {
             case .success:
@@ -29,7 +29,7 @@ class RealCharactersAPIClient: CharactersAPIClient {
             case .failure :
                 completion(Result(error: CharactersError.connectionError))
             }
-            
+
         }
 
     }

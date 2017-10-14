@@ -18,12 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureWindow()
         configureNavigationBarStyle()
 
-        window = UIWindow(frame:UIScreen.main.bounds)
+        window = UIWindow(frame: UIScreen.main.bounds)
         RootRouter().presentCharactersScreen(in: window!)
         return true
     }
 
-   
     fileprivate func configureWindow() {
         window?.backgroundColor = UIColor.windowBackgroundColor
         CostumImage.appearance().backgroundColor = UIColor.imageViewBackgroundColor

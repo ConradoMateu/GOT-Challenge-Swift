@@ -54,7 +54,7 @@ extension UIColor {
             print("Invalid RGB string, missing '#' as prefix", terminator: "")
         }
 
-        self.init(red:red, green:green, blue:blue, alpha:alpha)
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
 
     static var windowBackgroundColor: UIColor {

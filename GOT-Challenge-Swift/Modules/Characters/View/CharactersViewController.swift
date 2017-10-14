@@ -12,13 +12,12 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
 
     @IBOutlet weak var tableView: UITableView!
     open var presenter: CharactersPresentation!
-    
+
     var characters = [Character]() {
         didSet {
             tableView.reloadData()
         }
     }
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +30,7 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     fileprivate func configureNavigationBarBackButton() {
-        navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 
     func setUpView() {
@@ -67,7 +66,7 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
     }
 
 }
-extension CharactersViewController: CharactersView{
+extension CharactersViewController: CharactersView {
     func showNoContentScreen() {
     }
     func showCharactersData(_ characters: [Character]) {

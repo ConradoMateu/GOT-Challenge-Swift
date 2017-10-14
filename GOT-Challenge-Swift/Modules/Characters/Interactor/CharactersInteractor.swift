@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class CharactersInteractor: CharactersUseCase {
     var output: CharactersInteractorOutput!
     var apiclient: CharactersAPIClient!

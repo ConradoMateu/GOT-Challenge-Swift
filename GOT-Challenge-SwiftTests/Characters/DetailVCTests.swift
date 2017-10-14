@@ -27,18 +27,18 @@ class DetailVCTests: AcceptanceTestCase {
         tester().waitForView(withAccessibilityLabel: "Description: \(character.description!)")
     }
 
-    func testShowsNoDescriptionIfCharacterDoNotHave(){
+    func testShowsNoDescriptionIfCharacterDoNotHave() {
         let character = CharactersGenerator.with(description: nil)
         openDetailVC(character)
-        tester().waitForAbsenceOfView(withAccessibilityLabel:  "Description: \(String(describing: character.description))")
+        tester().waitForAbsenceOfView(withAccessibilityLabel: "Description: \(String(describing: character.description))")
     }
 
-    fileprivate func givenACharacter() -> GOT_Challenge_Swift.Character{
+    fileprivate func givenACharacter() -> GOT_Challenge_Swift.Character {
         let character = CharactersGenerator.with()
         apiClient.characters = [character]
         return character
     }
-    
+
     fileprivate func openDetailVC(_ character: GOT_Challenge_Swift.Character) {
         _ = ServiceLocator.config(apiClient)
         let detailVC = ServiceLocator().provideCharacterDetailViewController(forCharacter: character)
@@ -47,8 +47,6 @@ class DetailVCTests: AcceptanceTestCase {
         present(viewController: rootViewController)
         tester().waitForAnimationsToFinish()
     }
-
-
 
 }
 

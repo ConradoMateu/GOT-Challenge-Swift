@@ -22,7 +22,7 @@ class FakeCharactersAPIClient: CharactersAPIClient {
         Character(
             id: "9jd329d",
             name: "Daenerys Targaryen",
-            description:"Daenerys Targaryen is the daughter of King Aerys II Targaryen (also referred to as The Mad King) and his sister-wife Rhaella, and is one of the last survivors of House Targaryen. She serves as the third-person narrator of thirty-one chapters throughout A Game of Thrones, A Clash of Kings, A Storm of Swords, and A Dance with Dragons. She is the only monarch or claimant of such given point of view chapters in the novels. Thirteen years before the events of the series, she was born in the midst of a storm, earning her the nickname 'Stormborn'. Shortly thereafter, Daenerys and her brother Viserys fled to Braavos; Rhaella had died in childbirth. They spent the following years wandering the Free Cities.",
+            description: "Daenerys Targaryen is the daughter of King Aerys II Targaryen (also referred to as The Mad King) and his sister-wife Rhaella, and is one of the last survivors of House Targaryen. She serves as the third-person narrator of thirty-one chapters throughout A Game of Thrones, A Clash of Kings, A Storm of Swords, and A Dance with Dragons. She is the only monarch or claimant of such given point of view chapters in the novels. Thirteen years before the events of the series, she was born in the midst of a storm, earning her the nickname 'Stormborn'. Shortly thereafter, Daenerys and her brother Viserys fled to Braavos; Rhaella had died in childbirth. They spent the following years wandering the Free Cities.",
             image: URL(string: "https://s3-eu-west-1.amazonaws.com/npatarino/got/c8533a36-5e15-4a57-baed-fc87f7eba578.jpg")),
         Character(
             id: "4932850f",
@@ -108,9 +108,9 @@ class FakeCharactersAPIClient: CharactersAPIClient {
 
     }
     func getAllCharacters(_ completion: @escaping (Result<[Character], CharactersError>) -> Void) {
-        delay(0.3){completion(Result(self.characters))}
+        delay(0.3) {completion(Result(self.characters))}
     }
-    fileprivate func delay(_ delay: Double, closure: @escaping ()->()) {
+    fileprivate func delay(_ delay: Double, closure: @escaping ()->Void) {
         DispatchQueue.main.asyncAfter(
             deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure
         )

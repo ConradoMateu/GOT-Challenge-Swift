@@ -10,7 +10,7 @@ import Foundation
 
 @testable import GOT_Challenge_Swift
 
-extension GOT_Challenge_Swift.Character : Equatable {
+extension GOT_Challenge_Swift.Character: Equatable {
 }
 public func == (lhs: GOT_Challenge_Swift.Character, rhs: GOT_Challenge_Swift.Character) -> Bool {
     return lhs.id == rhs.id

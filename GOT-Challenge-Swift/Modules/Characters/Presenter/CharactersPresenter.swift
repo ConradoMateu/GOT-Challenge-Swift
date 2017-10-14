@@ -8,11 +8,11 @@
 
 import Foundation
 
-class CharactersPresenter: CharactersPresentation{
+class CharactersPresenter: CharactersPresentation {
     var view: CharactersView!
     var interactor: CharactersUseCase?
     var router: CharactersWireframe?
-    var characters = [Character](){
+    var characters = [Character]() {
         didSet {
             characters.count > 0 ? view?.showCharactersData(characters) : view?.showNoContentScreen()
         }
@@ -22,8 +22,8 @@ class CharactersPresenter: CharactersPresentation{
         self.view = view
         self.router = router
     }
-    
-    func didSelectCharacter(_ character: Character){
+
+    func didSelectCharacter(_ character: Character) {
         router!.presentDetails(forCharacter: character)
     }
 
@@ -32,13 +32,13 @@ class CharactersPresenter: CharactersPresentation{
         initialize()
     }
 
-    func initialize(){
+    func initialize() {
         self.interactor = ServiceLocator().provideCharactersInteractor(output: self)
         interactor?.fetchCharacters()
     }
 }
 
-extension CharactersPresenter: CharactersInteractorOutput{
+extension CharactersPresenter: CharactersInteractorOutput {
     func charactersFetched(_ characters: [Character]) {
         self.characters = characters
         view?.hideActivityIndicator()

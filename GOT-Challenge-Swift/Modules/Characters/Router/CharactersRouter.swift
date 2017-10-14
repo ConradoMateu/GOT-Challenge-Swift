@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-
-class CharactersRouter: CharactersWireframe{
+class CharactersRouter: CharactersWireframe {
     var viewController: UIViewController!
 
     init(viewController: CharactersViewController) {

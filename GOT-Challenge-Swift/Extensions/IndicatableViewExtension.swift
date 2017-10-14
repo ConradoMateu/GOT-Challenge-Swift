@@ -20,5 +20,5 @@ extension IndicatableView where Self: UIViewController {
         HUD.hide()
         accessibilityLabel = "HideView"
     }
-    
+
 }

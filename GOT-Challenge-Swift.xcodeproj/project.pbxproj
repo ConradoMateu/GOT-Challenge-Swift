@@ -147,7 +147,6 @@
 				E263F9191E740AF300BDE31C /* CharactersGenerator.swift */,
 				E2F4B1E11E71F284009DC829 /* MockCharacters.swift */,
 			);
-			name = "Test Doubles";
 			path = "Test Doubles";
 			sourceTree = "<group>";
 		};
@@ -158,7 +157,6 @@
 				E21D98EC1E7ABE2800693250 /* KIFTestActor.swift */,
 				E21D98EA1E7ABE0B00693250 /* XCTestCase.swift */,
 			);
-			name = KIF;
 			path = KIF;
 			sourceTree = "<group>";
 		};
@@ -167,7 +165,6 @@
 			children = (
 				E28B659E1E7020EA000C0401 /* Character.swift */,
 			);
-			name = Extensions;
 			path = Extensions;
 			sourceTree = "<group>";
 		};
@@ -203,7 +200,6 @@
 				E24A7D981EF691E00089FE09 /* CharactersVCTests.swift */,
 				E24A7D961EF691D60089FE09 /* DetailVCTests.swift */,
 			);
-			name = Characters;
 			path = Characters;
 			sourceTree = "<group>";
 		};
@@ -400,7 +396,6 @@
 				E2A152261E6C3E79003B7415 /* Resources */,
 				E7E4154984E517F4A43B7C94 /* [CP] Embed Pods Frameworks */,
 				362DC2011346B94227243B5B /* [CP] Copy Pods Resources */,
-				E20D49691E9A50F5007C2A7B /* Run Script */,
 				E2748DB41EA7869700444532 /* ShellScript */,
 			);
 			buildRules = (
@@ -573,20 +568,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GOT-Challenge-SwiftTests/Pods-GOT-Challenge-SwiftTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		E20D49691E9A50F5007C2A7B /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "";
 		};
 		E2748DB41EA7869700444532 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

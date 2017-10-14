@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RootRouter: RootWireframe{
+class RootRouter: RootWireframe {
     func presentCharactersScreen(in window: UIWindow) {
         window.makeKeyAndVisible()
         window.rootViewController =  ServiceLocator().provideRootViewController()

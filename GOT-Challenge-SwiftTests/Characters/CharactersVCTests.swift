@@ -12,16 +12,16 @@ import KIF
 import Nimble
 @testable import GOT_Challenge_Swift
 class CharactersVCTests: AcceptanceTestCase {
-    
+
     var apiClient = MockCharactersRepository()
 
-    func testDoNotShowLoadingViewWhenThereAreCharacters(){
+    func testDoNotShowLoadingViewWhenThereAreCharacters() {
         _ = givenThereAreCharacters()
         openCharactersVC()
         tester().waitForAbsenceOfView(withAccessibilityLabel: "LoadingView")
     }
 
-    fileprivate func givenThereAreNoCharacters() -> [GOT_Challenge_Swift.Character]{
+    fileprivate func givenThereAreNoCharacters() -> [GOT_Challenge_Swift.Character] {
         return givenThereAreCharacters(numberOfCharacters: 0)
     }
 
@@ -32,7 +32,7 @@ class CharactersVCTests: AcceptanceTestCase {
         expect(self.numberOfElementesInCharactersTableView()).to(equal(characters.count))
     }
 
-    func testDetailVCOnCharacterTapped(){
+    func testDetailVCOnCharacterTapped() {
         let characters = givenThereAreCharacters()
         openCharactersVC()
         tester().waitForView(withAccessibilityLabel: "CharactersTableView")
@@ -43,9 +43,8 @@ class CharactersVCTests: AcceptanceTestCase {
         tester().waitForView(withAccessibilityLabel: currentCharacter.name)
     }
 
-
     func testDetailVCOnCharactersTapped
-        (){
+        () {
         let characters = givenThereAreCharacters()
         openCharactersVC()
         for (index, element) in characters.enumerated() {
@@ -57,22 +56,21 @@ class CharactersVCTests: AcceptanceTestCase {
 
     }
 
-
     func testShowsCharactersNames() {
         let characters = givenThereAreCharacters()
 
         openCharactersVC()
 
-        characters.forEach{
+        characters.forEach {
             let characterCell = tester().waitForView(withAccessibilityLabel: $0.name) as! CharacterTableViewCell
             expect(characterCell.nameLabel.text).to(equal($0.name))
         }
 
     }
 
-    fileprivate func givenThereAreCharacters(numberOfCharacters: Int =  10) -> [GOT_Challenge_Swift.Character]{
+    fileprivate func givenThereAreCharacters(numberOfCharacters: Int =  10) -> [GOT_Challenge_Swift.Character] {
         var characters: [GOT_Challenge_Swift.Character] = []
-        for i in 0..<numberOfCharacters{
+        for i in 0..<numberOfCharacters {
             let description = "Description \(i)"
             let character = GOT_Challenge_Swift.Character(id: "\(i)", name: "Character \(i)", description: description, image: URL(string: "https://geekandsundry.com/wp-content/uploads/2016/04/thronesposter.jpg")!)
             characters.append(character)
@@ -99,6 +97,5 @@ class CharactersVCTests: AcceptanceTestCase {
     func getRandomCellNumberInTableViewBounds() -> Int {
         return Int(arc4random_uniform(UInt32(numberOfElementesInCharactersTableView())))
     }
-
 
 }
