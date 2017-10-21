@@ -25,7 +25,7 @@ class DetailVCTests: KIFTestCase {
         tester().waitForView(withAccessibilityLabel: "Description: \(character.description!)")
     }
 
-    func testShowsNoDescriptionIfCharacterDoNotHave() {
+    func testShowsNoDescriptionIfCharacterDoesNotHave() {
         let character = CharactersGenerator.with(description: nil)
         openDetailVC(character)
         tester().waitForAbsenceOfView(withAccessibilityLabel: "Description: \(String(describing: character.description))")

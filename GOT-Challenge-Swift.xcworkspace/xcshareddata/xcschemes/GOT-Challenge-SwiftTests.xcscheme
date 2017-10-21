@@ -82,15 +82,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E2A152271E6C3E79003B7415"
-            BuildableName = "GOT-Challenge-Swift.app"
-            BlueprintName = "GOT-Challenge-Swift"
-            ReferencedContainer = "container:GOT-Challenge-Swift.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

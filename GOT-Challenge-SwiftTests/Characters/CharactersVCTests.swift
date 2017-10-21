@@ -49,7 +49,6 @@ class CharactersVCTests: KIFTestCase {
             tester().waitForView(withAccessibilityLabel: element.name)
             UIApplication.shared.keyWindow?.rootViewController = ServiceLocator().provideRootViewController()
         }
-
     }
 
     func testShowsCharactersNames() {
@@ -67,13 +66,13 @@ class CharactersVCTests: KIFTestCase {
         tester().waitForAnimationsToFinish()
     }
 
-    func numberOfElementesInCharactersTableView() -> Int {
+    fileprivate func numberOfElementesInCharactersTableView() -> Int {
         let tableView = tester().waitForView(withAccessibilityLabel: "CharactersTableView") as! UITableView
         return tableView.numberOfRows(inSection: 0)
     }
 
     //Generates a random number between 0 and N-1
-    func getRandomCellNumberInTableViewBounds() -> Int {
+    fileprivate func getRandomCellNumberInTableViewBounds() -> Int {
         return Int(arc4random_uniform(UInt32(numberOfElementesInCharactersTableView())))
     }
 
