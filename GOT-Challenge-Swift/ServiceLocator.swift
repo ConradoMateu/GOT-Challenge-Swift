@@ -43,16 +43,16 @@ class ServiceLocator {
         return characterDetailViewController!
     }
 
-    func provideApiClient() -> CharactersAPIClient {
-        return RealCharactersAPIClient()
-    }
-
     func provideCharacterRouter(viewController: CharactersViewController) -> CharactersRouter {
         return CharactersRouter(viewController: viewController)
     }
 
     func provideCharactersInteractor(output: CharactersInteractorOutput) -> CharactersInteractor {
         return CharactersInteractor(output: output, apiclient: ServiceLocator.apiClient)
+    }
+
+    func provideApiClient() -> CharactersAPIClient {
+        return RealCharactersAPIClient()
     }
 
     static func config(_ apiClient: CharactersAPIClient) {

@@ -110,10 +110,5 @@ class FakeCharactersAPIClient: CharactersAPIClient {
     func getAllCharacters(_ completion: @escaping (Result<[Character], CharactersError>) -> Void) {
         delay(0.3) {completion(Result(self.characters))}
     }
-    fileprivate func delay(_ delay: Double, closure: @escaping ()->Void) {
-        DispatchQueue.main.asyncAfter(
-            deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure
-        )
-    }
 
 }

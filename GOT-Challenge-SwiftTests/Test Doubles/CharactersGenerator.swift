@@ -13,7 +13,9 @@ class CharactersGenerator {
     static func with(id: String = "0123",
                      name: String = "Jonh Snow",
                      description: String? = "The king in the north",
-                     image: URL? = nil) -> GOT_Challenge_Swift.Character {
+                     image: URL? = URL(string: "https://www.thesun.co.uk/wp-content/uploads/2017/10/nintchdbpict0003465565162.jpg?strip=all&w=960")) ->
+
+        GOT_Challenge_Swift.Character {
                 return GOT_Challenge_Swift.Character(id: id, name: name, description: description, image: image)
     }
 

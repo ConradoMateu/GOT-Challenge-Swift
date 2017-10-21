@@ -11,18 +11,16 @@ import UIKit
 import KIF
 import Nimble
 @testable import GOT_Challenge_Swift
-class DetailVCTests: AcceptanceTestCase {
-
-    var apiClient = MockCharactersRepository()
+class DetailVCTests: KIFTestCase {
 
     func testShowsCharacterNameAsTitle() {
-        let character = givenACharacter()
+        let character = CharactersGenerator.with()
         openDetailVC(character)
         tester().waitForView(withAccessibilityLabel: character.name)
     }
 
     func testShowsCharacterDescription() {
-        let character = givenACharacter()
+        let character = CharactersGenerator.with()
         openDetailVC(character)
         tester().waitForView(withAccessibilityLabel: "Description: \(character.description!)")
     }
@@ -33,20 +31,12 @@ class DetailVCTests: AcceptanceTestCase {
         tester().waitForAbsenceOfView(withAccessibilityLabel: "Description: \(String(describing: character.description))")
     }
 
-    fileprivate func givenACharacter() -> GOT_Challenge_Swift.Character {
-        let character = CharactersGenerator.with()
-        apiClient.characters = [character]
-        return character
-    }
-
     fileprivate func openDetailVC(_ character: GOT_Challenge_Swift.Character) {
-        _ = ServiceLocator.config(apiClient)
         let detailVC = ServiceLocator().provideCharacterDetailViewController(forCharacter: character)
         let rootViewController = UINavigationController()
         rootViewController.viewControllers = [detailVC]
-        present(viewController: rootViewController)
+        UIApplication.shared.keyWindow?.rootViewController = rootViewController
         tester().waitForAnimationsToFinish()
     }
-
 }
 

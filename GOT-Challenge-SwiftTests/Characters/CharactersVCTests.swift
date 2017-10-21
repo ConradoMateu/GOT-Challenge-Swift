@@ -12,17 +12,13 @@ import KIF
 import Nimble
 @testable import GOT_Challenge_Swift
 class CharactersVCTests: AcceptanceTestCase {
-
-    var apiClient = MockCharactersRepository()
+    
+    var apiClient: CharactersAPIClient?
 
     func testDoNotShowLoadingViewWhenThereAreCharacters() {
         _ = givenThereAreCharacters()
         openCharactersVC()
         tester().waitForAbsenceOfView(withAccessibilityLabel: "LoadingView")
-    }
-
-    fileprivate func givenThereAreNoCharacters() -> [GOT_Challenge_Swift.Character] {
-        return givenThereAreCharacters(numberOfCharacters: 0)
     }
 
     func testShowsTheExactNumberOfCharacters() {
@@ -58,33 +54,16 @@ class CharactersVCTests: AcceptanceTestCase {
 
     func testShowsCharactersNames() {
         let characters = givenThereAreCharacters()
-
         openCharactersVC()
-
         characters.forEach {
             let characterCell = tester().waitForView(withAccessibilityLabel: $0.name) as! CharacterTableViewCell
             expect(characterCell.nameLabel.text).to(equal($0.name))
         }
-
-    }
-
-    fileprivate func givenThereAreCharacters(numberOfCharacters: Int =  10) -> [GOT_Challenge_Swift.Character] {
-        var characters: [GOT_Challenge_Swift.Character] = []
-        for i in 0..<numberOfCharacters {
-            let description = "Description \(i)"
-            let character = GOT_Challenge_Swift.Character(id: "\(i)", name: "Character \(i)", description: description, image: URL(string: "https://geekandsundry.com/wp-content/uploads/2016/04/thronesposter.jpg")!)
-            characters.append(character)
-        }
-        apiClient.characters = characters
-        return characters
     }
 
     fileprivate func openCharactersVC() {
-        _ = ServiceLocator.config(apiClient)
-        let charactersVC = ServiceLocator().provideCharactersViewController()
-        let rootViewController = UINavigationController()
-        rootViewController.viewControllers = [charactersVC]
-        present(viewController: rootViewController)
+        _ = ServiceLocator.config(apiClient!)
+        UIApplication.shared.keyWindow?.rootViewController = ServiceLocator().provideRootViewController()
         tester().waitForAnimationsToFinish()
     }
 
@@ -96,6 +75,18 @@ class CharactersVCTests: AcceptanceTestCase {
     //Generates a random number between 0 and N-1
     func getRandomCellNumberInTableViewBounds() -> Int {
         return Int(arc4random_uniform(UInt32(numberOfElementesInCharactersTableView())))
+    }
+
+    fileprivate func givenThereAreNoCharacters() -> [GOT_Challenge_Swift.Character] {
+        let newApiClient = MockEmptyCharacters()
+        self.apiClient = newApiClient
+        return newApiClient.characters
+    }
+
+    fileprivate func givenThereAreCharacters() -> [GOT_Challenge_Swift.Character] {
+        let newApiClient = MockCharactersRepository()
+        self.apiClient = newApiClient
+        return newApiClient.characters
     }
 
 }
