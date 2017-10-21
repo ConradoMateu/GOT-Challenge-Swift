@@ -11,7 +11,7 @@ import UIKit
 import KIF
 import Nimble
 @testable import GOT_Challenge_Swift
-class CharactersVCTests: AcceptanceTestCase {
+class CharactersVCTests: KIFTestCase {
     
     var apiClient: CharactersAPIClient?
 
