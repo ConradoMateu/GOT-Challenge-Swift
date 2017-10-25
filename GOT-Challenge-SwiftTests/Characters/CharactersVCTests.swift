@@ -87,7 +87,7 @@ class CharactersVCTests: KIFTestCase {
     }
 
     fileprivate func givenThereAreCharacters() -> [GOT_Challenge_Swift.Character] {
-        let newApiClient = MockCharactersRepository()
+        let newApiClient = MockCharacter()
         self.apiClient = newApiClient
         return newApiClient.characters
     }

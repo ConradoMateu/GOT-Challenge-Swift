@@ -13,19 +13,14 @@ class ServiceLocator {
 
     static var apiClient: CharactersAPIClient = FakeCharactersAPIClient()
 
-    fileprivate func provideCharacterDetailPresenter(forCharacter character: Character, view: DetailsView) -> DetailsPresenter {
-        return DetailsPresenter(view: view, character: character)
-    }
-
-    fileprivate func provideCharactersPresenter(view: CharactersViewController) -> CharactersPresenter {
-        let router = provideCharacterRouter(viewController: view)
-        return CharactersPresenter(view: view, router: router)
-    }
+    //MARK: RootVC
 
     func provideRootViewController() -> UIViewController {
         let view = ServiceLocator().provideCharactersViewController()
         return  UINavigationController(rootViewController: view)
     }
+
+    //MARK: CharactersVC Module
 
     func provideCharactersViewController() -> CharactersViewController {
         let charactersViewController = R.storyboard.gOT.charactersViewController()
@@ -35,12 +30,9 @@ class ServiceLocator {
         return charactersViewController!
     }
 
-    func provideCharacterDetailViewController(forCharacter character: Character) -> CharacterDetailViewController {
-        let characterDetailViewController = R.storyboard.gOT.characterDetailViewController()
-        let presenter = provideCharacterDetailPresenter(forCharacter: character, view: characterDetailViewController!
-        )
-        characterDetailViewController?.presenter = presenter
-        return characterDetailViewController!
+    fileprivate func provideCharactersPresenter(view: CharactersViewController) -> CharactersPresenter {
+        let router = provideCharacterRouter(viewController: view)
+        return CharactersPresenter(view: view, router: router)
     }
 
     func provideCharacterRouter(viewController: CharactersViewController) -> CharactersRouter {
@@ -51,9 +43,21 @@ class ServiceLocator {
         return CharactersInteractor(output: output, apiclient: ServiceLocator.apiClient)
     }
 
-    func provideApiClient() -> CharactersAPIClient {
-        return RealCharactersAPIClient()
+    //MARK: CharacterDetailVC Module
+
+    func provideCharacterDetailViewController(forCharacter character: Character) -> CharacterDetailViewController {
+        let characterDetailViewController = R.storyboard.gOT.characterDetailViewController()
+        let presenter = provideCharacterDetailPresenter(forCharacter: character, view: characterDetailViewController!
+        )
+        characterDetailViewController?.presenter = presenter
+        return characterDetailViewController!
     }
+
+    fileprivate func provideCharacterDetailPresenter(forCharacter character: Character, view: DetailsView) -> DetailsPresenter {
+        return DetailsPresenter(view: view, character: character)
+    }
+
+    //MARK: ApiClient Configurator
 
     static func config(_ apiClient: CharactersAPIClient) {
         self.apiClient = apiClient

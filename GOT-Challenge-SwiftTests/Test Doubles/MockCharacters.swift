@@ -10,7 +10,7 @@ import Foundation
 import Result
 @testable import GOT_Challenge_Swift
 
-class MockCharactersRepository: CharactersAPIClient {
+class MockCharacter: CharactersAPIClient {
 
     var characters: [GOT_Challenge_Swift.Character]
 
