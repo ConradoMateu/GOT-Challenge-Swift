@@ -7,13 +7,15 @@
 //
 
 import Foundation
-import UIKit
+//import UIKit
 import KIF
 import Nimble
 @testable import GOT_Challenge_Swift
 class CharactersVCTests: KIFTestCase {
     
     var apiClient: CharactersAPIClient?
+
+    //MARK: CharactersVCTests
 
     func testDoNotShowLoadingViewWhenThereAreCharacters() {
         _ = givenThereAreCharacters()
@@ -34,7 +36,6 @@ class CharactersVCTests: KIFTestCase {
         tester().waitForView(withAccessibilityLabel: "CharactersTableView")
         let characterIndex = getRandomCellNumberInTableViewBounds()
         let currentCharacter = characters[characterIndex]
-        tester().waitForView(withAccessibilityLabel: currentCharacter.name)
         tester().tapRow(at: IndexPath(row: characterIndex, section: 0), inTableViewWithAccessibilityIdentifier: "CharactersTableView")
         tester().waitForView(withAccessibilityLabel: currentCharacter.name)
     }
@@ -60,10 +61,12 @@ class CharactersVCTests: KIFTestCase {
         }
     }
 
-    fileprivate func openCharactersVC() {
-        _ = ServiceLocator.config(apiClient!)
-        UIApplication.shared.keyWindow?.rootViewController = ServiceLocator().provideRootViewController()
-        tester().waitForAnimationsToFinish()
+
+    //MARK: Auxiliar Methods
+
+    //Generates a random number between 0 and N-1
+    fileprivate func getRandomCellNumberInTableViewBounds() -> Int {
+        return Int(arc4random_uniform(UInt32(numberOfElementesInCharactersTableView())))
     }
 
     fileprivate func numberOfElementesInCharactersTableView() -> Int {
@@ -71,9 +74,10 @@ class CharactersVCTests: KIFTestCase {
         return tableView.numberOfRows(inSection: 0)
     }
 
-    //Generates a random number between 0 and N-1
-    fileprivate func getRandomCellNumberInTableViewBounds() -> Int {
-        return Int(arc4random_uniform(UInt32(numberOfElementesInCharactersTableView())))
+    fileprivate func openCharactersVC() {
+        _ = ServiceLocator.config(apiClient!)
+        UIApplication.shared.keyWindow?.rootViewController = ServiceLocator().provideRootViewController()
+        tester().waitForAnimationsToFinish()
     }
 
     fileprivate func givenThereAreNoCharacters() -> [GOT_Challenge_Swift.Character] {

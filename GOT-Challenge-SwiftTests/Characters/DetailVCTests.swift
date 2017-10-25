@@ -13,6 +13,8 @@ import Nimble
 @testable import GOT_Challenge_Swift
 class DetailVCTests: KIFTestCase {
 
+    //MARK: DetailVC Tests
+
     func testShowsCharacterNameAsTitle() {
         let character = CharactersGenerator.with()
         openDetailVC(character)
@@ -30,6 +32,8 @@ class DetailVCTests: KIFTestCase {
         openDetailVC(character)
         tester().waitForAbsenceOfView(withAccessibilityLabel: "Description: \(String(describing: character.description))")
     }
+
+    //MARK: Aux Methods
 
     fileprivate func openDetailVC(_ character: GOT_Challenge_Swift.Character) {
         let detailVC = ServiceLocator().provideCharacterDetailViewController(forCharacter: character)
