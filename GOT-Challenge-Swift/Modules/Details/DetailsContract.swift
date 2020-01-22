@@ -15,7 +15,7 @@ protocol DetailsView: class {
 }
 
 protocol DetailsPresentation: class {
-    weak var view: DetailsView? { get set }
+    var view: DetailsView? { get set }
 
     func viewDidLoad()
 }

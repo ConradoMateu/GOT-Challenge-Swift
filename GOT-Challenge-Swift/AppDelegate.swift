@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         configureWindow()
         configureNavigationBarStyle()
@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearance.tintColor = UIColor.navigationBarTitleColor
         navigationBarAppearance.isTranslucent = false
         navigationBarAppearance.titleTextAttributes = [
-            NSAttributedStringKey.foregroundColor: UIColor.navigationBarTitleColor
+            NSAttributedString.Key.foregroundColor: UIColor.navigationBarTitleColor
         ]
     }
 }
