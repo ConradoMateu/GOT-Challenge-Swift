@@ -15,7 +15,6 @@
 		E21D98EB1E7ABE0B00693250 /* XCTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21D98EA1E7ABE0B00693250 /* XCTestCase.swift */; };
 		E21D98ED1E7ABE2800693250 /* KIFTestActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21D98EC1E7ABE2800693250 /* KIFTestActor.swift */; };
 		E23378A01E6DF6FA00F3E36C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E233789F1E6DF6FA00F3E36C /* Assets.xcassets */; };
-		E2497D481EF85F4D000D3BF1 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2497D471EF85F4D000D3BF1 /* R.generated.swift */; };
 		E24A7D971EF691D60089FE09 /* DetailVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24A7D961EF691D60089FE09 /* DetailVCTests.swift */; };
 		E24A7D991EF691E00089FE09 /* CharactersVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24A7D981EF691E00089FE09 /* CharactersVCTests.swift */; };
 		E263F91A1E740AF300BDE31C /* CharactersGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E263F9191E740AF300BDE31C /* CharactersGenerator.swift */; };
@@ -69,7 +68,6 @@
 		E21D98EA1E7ABE0B00693250 /* XCTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestCase.swift; sourceTree = "<group>"; };
 		E21D98EC1E7ABE2800693250 /* KIFTestActor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KIFTestActor.swift; sourceTree = "<group>"; };
 		E233789F1E6DF6FA00F3E36C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E2497D471EF85F4D000D3BF1 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		E24A7D961EF691D60089FE09 /* DetailVCTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVCTests.swift; sourceTree = "<group>"; };
 		E24A7D981EF691E00089FE09 /* CharactersVCTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersVCTests.swift; sourceTree = "<group>"; };
 		E263F9191E740AF300BDE31C /* CharactersGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersGenerator.swift; sourceTree = "<group>"; };
@@ -285,7 +283,6 @@
 				E2A1522B1E6C3E79003B7415 /* AppDelegate.swift */,
 				E233789F1E6DF6FA00F3E36C /* Assets.xcassets */,
 				E2A152371E6C3E79003B7415 /* Info.plist */,
-				E2497D471EF85F4D000D3BF1 /* R.generated.swift */,
 				E21132F81ED9DF6900C786E8 /* ServiceLocator.swift */,
 			);
 			path = "GOT-Challenge-Swift";
@@ -395,7 +392,6 @@
 				E2A152251E6C3E79003B7415 /* Frameworks */,
 				E2A152261E6C3E79003B7415 /* Resources */,
 				E7E4154984E517F4A43B7C94 /* [CP] Embed Pods Frameworks */,
-				362DC2011346B94227243B5B /* [CP] Copy Pods Resources */,
 				E2748DB41EA7869700444532 /* ShellScript */,
 			);
 			buildRules = (
@@ -416,7 +412,6 @@
 				E2A152391E6C3E79003B7415 /* Frameworks */,
 				E2A1523A1E6C3E79003B7415 /* Resources */,
 				E1C34C4510C91FC2ADF49665 /* [CP] Embed Pods Frameworks */,
-				1456E5C6226A95F6756E8A47 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -458,6 +453,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -500,43 +496,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GOT-Challenge-SwiftTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		1456E5C6226A95F6756E8A47 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GOT-Challenge-SwiftTests/Pods-GOT-Challenge-SwiftTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		362DC2011346B94227243B5B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GOT-Challenge-Swift/Pods-GOT-Challenge-Swift-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B079D21BD1CE469B14F6419F /* [CP] Check Pods Manifest.lock */ = {
@@ -545,13 +514,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GOT-Challenge-Swift-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E1C34C4510C91FC2ADF49665 /* [CP] Embed Pods Frameworks */ = {
@@ -560,13 +532,18 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GOT-Challenge-SwiftTests/Pods-GOT-Challenge-SwiftTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/KIF/KIF.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KIF.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GOT-Challenge-SwiftTests/Pods-GOT-Challenge-SwiftTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GOT-Challenge-SwiftTests/Pods-GOT-Challenge-SwiftTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E2748DB41EA7869700444532 /* ShellScript */ = {
@@ -580,7 +557,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n\n";
+			shellScript = "
+
+";
 		};
 		E7E4154984E517F4A43B7C94 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -588,13 +567,26 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GOT-Challenge-Swift/Pods-GOT-Challenge-Swift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GOT-Challenge-Swift/Pods-GOT-Challenge-Swift-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GOT-Challenge-Swift/Pods-GOT-Challenge-Swift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -616,7 +608,6 @@
 				E2A1524C1E6C3E88003B7415 /* Character.swift in Sources */,
 				E2E246F11EA7EE6800622D68 /* CharactersPresenter.swift in Sources */,
 				E2A152511E6C8B1B003B7415 /* FakeCharactersAPIClient.swift in Sources */,
-				E2497D481EF85F4D000D3BF1 /* R.generated.swift in Sources */,
 				E21132F91ED9DF6900C786E8 /* ServiceLocator.swift in Sources */,
 				E2748DBC1EA7BB6D00444532 /* RouterContract.swift in Sources */,
 				E2A1522C1E6C3E79003B7415 /* AppDelegate.swift in Sources */,

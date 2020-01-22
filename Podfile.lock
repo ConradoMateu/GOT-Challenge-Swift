@@ -1,44 +1,49 @@
 PODS:
-  - Alamofire (4.5.1)
-  - AlamofireObjectMapper (5.0.0):
-    - Alamofire (~> 4.1)
-    - ObjectMapper (~> 3.0)
-  - KIF (3.6.0):
-    - KIF/Core (= 3.6.0)
-  - KIF/Core (3.6.0)
-  - Nimble (7.0.2)
-  - ObjectMapper (3.0.0)
-  - PKHUD (5.0.0)
-  - R.swift (4.0.0):
-    - R.swift.Library (~> 4.0.0)
-  - R.swift.Library (4.0.0)
-  - Result (3.2.4)
-  - SDWebImage (4.1.2):
-    - SDWebImage/Core (= 4.1.2)
-  - SDWebImage/Core (4.1.2)
+  - Alamofire (4.9.1)
+  - AlamofireObjectMapper (5.2.1):
+    - Alamofire (~> 4.7)
+    - ObjectMapper (~> 3.4)
+  - KIF (3.7.8):
+    - KIF/Core (= 3.7.8)
+  - KIF/Core (3.7.8)
+  - Nimble (8.0.5)
+  - ObjectMapper (3.5.1)
+  - PKHUD (5.3.0)
+  - Result (5.0.0)
+  - SDWebImage (5.5.1):
+    - SDWebImage/Core (= 5.5.1)
+  - SDWebImage/Core (5.5.1)
 
 DEPENDENCIES:
   - Alamofire
-  - AlamofireObjectMapper
+  - AlamofireObjectMapper (~> 5.2)
   - KIF
   - Nimble
   - PKHUD
-  - R.swift
   - Result
   - SDWebImage
 
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlamofireObjectMapper
+    - KIF
+    - Nimble
+    - ObjectMapper
+    - PKHUD
+    - Result
+    - SDWebImage
+
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
-  KIF: bd770edd8ce49bc7308501e4871e58a02d137be3
-  Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
-  ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
-  PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
-  R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
-  R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
-  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
+  KIF: 52e1af1a78cf6fe4ec6777b14776f3dd2eccc32e
+  Nimble: 4ab1aeb9b45553c75b9687196b0fa0713170a332
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
+  Result: ed341d2f236af425b803e690e9bd8fd0a0cb7c5a
+  SDWebImage: 1245d058b7b8f59adef7a6da6bbafd4f1ab67041
 
-PODFILE CHECKSUM: e91df208bf0211f03c641246345d8ebb3d46e8b4
+PODFILE CHECKSUM: fbba08387d178a225646cab508d67c3b8a60c7f8
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.8.4

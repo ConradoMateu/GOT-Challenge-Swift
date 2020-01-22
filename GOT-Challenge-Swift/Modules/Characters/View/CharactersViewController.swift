@@ -55,7 +55,7 @@ class CharactersViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.characterCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath) as? CharacterTableViewCell
         let character = characters[(indexPath as NSIndexPath).row]
         cell?.configureForCharacter(character)
         return cell!

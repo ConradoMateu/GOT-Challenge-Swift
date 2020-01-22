@@ -6,7 +6,7 @@
 //  Copyright © 2017 conradomateu. All rights reserved.
 //
 
-import Rswift
+import UIKit
 import Foundation
 
 class ServiceLocator {
@@ -23,11 +23,11 @@ class ServiceLocator {
     //MARK: CharactersVC Module
 
     func provideCharactersViewController() -> CharactersViewController {
-        let charactersViewController = R.storyboard.gOT.charactersViewController()
+        let charactersViewController = ServiceLocator.getBoard("CharactersViewController") as! CharactersViewController
         let presenter = provideCharactersPresenter(view:
-            charactersViewController!)
-        charactersViewController?.presenter = presenter
-        return charactersViewController!
+            charactersViewController)
+        charactersViewController.presenter = presenter
+        return charactersViewController
     }
 
     fileprivate func provideCharactersPresenter(view: CharactersViewController) -> CharactersPresenter {
@@ -46,11 +46,11 @@ class ServiceLocator {
     //MARK: CharacterDetailVC Module
 
     func provideCharacterDetailViewController(forCharacter character: Character) -> CharacterDetailViewController {
-        let characterDetailViewController = R.storyboard.gOT.characterDetailViewController()
-        let presenter = provideCharacterDetailPresenter(forCharacter: character, view: characterDetailViewController!
+        let characterDetailViewController = ServiceLocator.getBoard("CharacterDetailViewController") as! CharacterDetailViewController
+        let presenter = provideCharacterDetailPresenter(forCharacter: character, view: characterDetailViewController
         )
-        characterDetailViewController?.presenter = presenter
-        return characterDetailViewController!
+        characterDetailViewController.presenter = presenter
+        return characterDetailViewController
     }
 
     fileprivate func provideCharacterDetailPresenter(forCharacter character: Character, view: DetailsView) -> DetailsPresenter {
@@ -61,5 +61,12 @@ class ServiceLocator {
 
     static func config(_ apiClient: CharactersAPIClient) {
         self.apiClient = apiClient
+    }
+}
+
+extension ServiceLocator {
+    static func getBoard(_ boardName: String) -> UIViewController {
+        let storyboard = UIStoryboard(name: "GOT", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: boardName)
     }
 }

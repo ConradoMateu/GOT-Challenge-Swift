@@ -9,8 +9,10 @@
 import Foundation
 import Alamofire
 import AlamofireObjectMapper
-import enum Result.Result
+//import enum Result.Result
 import ObjectMapper
+
+
 
 class RealCharactersAPIClient: CharactersAPIClient {
 
@@ -18,16 +20,15 @@ class RealCharactersAPIClient: CharactersAPIClient {
 
     let endPoint: String = "https://raw.githubusercontent.com/ConradoMateu/GOT-Challenge-Swift/master/GOT-Challenge-Swift/Resources/data.json"
 
-    func getAllCharacters(_ completion: @escaping (Result<[Character], CharactersError>) -> Void) {
+    func getAllCharacters(_ completion: @escaping (Swift.Result<[Character], CharactersError>) -> Void) {
         
         Alamofire.request(endPoint).responseArray { (response: DataResponse<[Character]>) in
-
             switch response.result {
             case .success:
                 let characters = response.result.value!
-                completion(Result(characters))
+                completion(.success(characters))
             case .failure :
-                completion(Result(error: CharactersError.connectionError))
+                completion(.failure(CharactersError.connectionError))
             }
 
         }

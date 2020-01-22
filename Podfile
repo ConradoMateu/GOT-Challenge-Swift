@@ -6,9 +6,8 @@ target 'GOT-Challenge-Swift' do
   use_frameworks!
     pod 'Result'
     pod 'SDWebImage'
-    pod 'R.swift'
     pod 'PKHUD'
-    pod 'AlamofireObjectMapper'
+    pod 'AlamofireObjectMapper', '~> 5.2'
     pod 'Alamofire'
   # Pods for GOT-Challenge-Swift
 
